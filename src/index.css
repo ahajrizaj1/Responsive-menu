@@ -5,6 +5,11 @@
     font-family: sans-serif;
 }
 
+body{
+    background-color: rgb(0, 0, 58);
+    height: 200vh;
+}
+
 
 a,a:visited,a:active{
     text-decoration: none;

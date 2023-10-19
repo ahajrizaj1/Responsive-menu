@@ -8,6 +8,23 @@ import { AiOutlineClose } from "react-icons/ai";
 const Navbar = () => {
   const [showMobileNav, setShowMobileNav] = useState(false);
   const [showBackdrop, setShowBackdrop] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  const handleNavScroll = () => {
+    if (window.scrollY >= 100) {
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleNavScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleNavScroll);
+    };
+  }, []);
 
   const handleShowMobileNav = () => {
     setShowMobileNav((prev) => !prev);
@@ -32,7 +49,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="navbar">
+    <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
       {showMobileNav && <MobileNav />}
       {showBackdrop && <Backdrop hideBackdrop={handleCloseShowMobileMenu} />}
       <div className="nav__logo">
@@ -53,7 +70,10 @@ const Navbar = () => {
         </div>
       </div>
       {showMobileNav ? (
-        <AiOutlineClose className="close-icons" onClick={handleCloseShowMobileMenu} />
+        <AiOutlineClose
+          className="close-icons"
+          onClick={handleCloseShowMobileMenu}
+        />
       ) : (
         <div className="burger" onClick={handleShowMobileNav}>
           <div></div>

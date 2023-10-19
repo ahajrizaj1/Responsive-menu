@@ -3,7 +3,7 @@
 const Backdrop = (prop) => {
   return (
     <div className="backdrop" style={{
-        backgroundColor: 'rgba(0,0,0,0.75)',
+        backgroundColor: 'rgba(0,0,0,0.65)',
         zIndex:1,
         height:'100vh',
         width:'100vw',

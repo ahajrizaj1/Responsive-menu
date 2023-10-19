@@ -5,7 +5,7 @@
   left: 0;
   padding: 2rem 5%;
   color: white;
-  background-color: rgb(0, 0, 55);
+  background-color: transparent;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -19,6 +19,27 @@
     display: none;
   }
 }
+
+.scrolled {
+  background-color: white;
+  color: black;
+  .mobile__nav-logo{
+    color: white;
+  }
+  .mobile__nav-link{
+    color: white;
+  }
+  .burger{
+    div{
+      background-color: black;
+    }
+  }
+  .close-icons {
+    color: white;
+  }
+  
+}
+
 
 .burger {
     z-index: 10;
